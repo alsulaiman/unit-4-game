@@ -1,0 +1,67 @@
+body {
+	width: 60%;
+	background: lightgrey;
+}
+
+.logo, .instruction, .random, .result, div p, #yourResult, footer {
+	padding: 20px 10px; margin: 5px;
+}
+
+.logo {
+	background: orange;
+	display: inline-block;
+	color: white;
+}
+
+.instruction {
+	background: blanchedalmond;
+}
+
+.instruction p {
+	padding: 10px 0;
+	font: 16px/1.8 helvetica;
+	color: green;
+}
+
+.random {
+	background: lightseagreen;
+	width: 200px;
+	float: left;
+	font-size: 36px;
+}
+
+.result {
+	background: powderblue;
+	width: 150px;
+	float: left;
+}
+
+.classImag {
+	clear: both;
+	margin: 5px; padding: 0;
+}
+
+img {
+	padding-right: 10px;
+	height: 90px;
+}
+
+.divP {
+	background: lightseagreen;
+	margin-bottom: 10px;
+	width: 300px;
+	color: white;
+}
+
+#yourResult {
+	padding-bottom: 90px;
+	width: 300px;
+	background: lightseagreen;
+	color: white;
+}
+
+footer {
+	text-align: center;
+	color: white;
+	background: darkgrey;
+}
