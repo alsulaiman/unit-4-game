@@ -17,9 +17,8 @@ body {
 	background: blanchedalmond;
 }
 
-.instruction p {
-	padding: 10px 0;
-	font: 16px/1.8 helvetica;
+.instruction li {
+	font: 1em/1.8 helvetica;
 	color: green;
 }
 
@@ -36,7 +35,7 @@ body {
 	float: left;
 }
 
-.classImag {
+.crystals {
 	clear: both;
 	margin: 5px; padding: 0;
 }
@@ -58,6 +57,7 @@ img {
 	width: 300px;
 	background: lightseagreen;
 	color: white;
+	font-size: 36px;
 }
 
 footer {
