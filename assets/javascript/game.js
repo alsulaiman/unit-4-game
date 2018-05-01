@@ -1,87 +1,47 @@
-	// TODO::Create a random number Math.random
-	// TODO::Get the random number element using jquery $('#put the id here')
-	// TODO::Put the random number from step 1 in the .text function of the jquery object from step 2
-
-	// NEXT: Do a plan to use the crystal jquery objects and assign values to them
-// ==============================================
-
 $(document).ready(function(){
-	var targetNumber = Math.floor((Math.random()*100)+1);
-	$("#randomNumber").text(targetNumber);
-
-	// ==============================================
-// =========================================== //
-// 		General variable 
-// =========================================== //
-	var crystals = $("#crystals");
-	var counter = 0;
-	var counterWin = 0;
-	var counterLose = 0;
-	var imagValue = [10, 5, 3, 7];
-	var numberImg = ["./assets/images/img1.png", 
+	var counter=0;
+	var couWin=0;
+	var couLos=0;
+	var ranNum = Math.floor((Math.random()*100)+1);
+	$("#randomNumber").text(ranNum);
+	var crystals = $(".crystals");
+	var imgValue = [3, 5, 7, 10];
+	var imgNum = ["./assets/images/img1.png", 
 	"./assets/images/img2.png", 
 	"./assets/images/img3.png", 
 	"./assets/images/img4.png"];
-	
-// =========================================== //
-// 		Cristals
-// =========================================== //
-
-	for (var i = 0; i < imagValue.length; i++) {
+	for (var i = 0; i < imgValue.length; i++) {
 		var imageCrystal = $("<img>");
 		imageCrystal.addClass("crystalImage");
-		imageCrystal.attr("src", numberImg[i]);
-		imageCrystal.attr("data-crystalvalue", imagValue[i]);
+		imageCrystal.attr("src", imgNum[i]);
+		imageCrystal.attr("data-crystalvalue", imgValue[i]);
 		crystals.append(imageCrystal);
 	}
-
-	// ==============================================
-	crystals.on("click", ".crystalImage", function() {
-		var crystalValue = ($(this).attr("data-crystalvalue"));
-		crystalValue = parseInt(crystalValue);
-		counter += crystalValue;
-		$('#yourResult').text(counter);
-		if (counter === targetNumber){
-			alert("You win!!");
-			counterWin += 1;
-			$('#winsScore').text("total wins: "+counterWin);
-			counter = 0;
+crystals.on("click", ".crystalImage", function(){
+	var crystalValue = ($(this).attr("data-crystalvalue"));
+	crystalValue = parseInt(crystalValue);
+	counter += crystalValue;
+	$('#yourResult').text(counter);
+	if (counter === ranNum){
+		couWin += 1;
+		$('#winsScore').text("total Wins: "+couWin);
+		window.setTimeout(function(){
+			alert("You win!");
+				counter = 0;
+				ranNum = Math.floor((Math.random()*100)+1);
+				$("#randomNumber").text(ranNum);
 			$('#yourResult').text(counter);
-		} else if (counter >= targetNumber) {
+		},100);
+	} else if(counter>ranNum){
+		window.setTimeout(function(){
 			alert("You lose!!");
-			counterLose += 1;
-			$('#lossesScore').text("total losses: "+counterLose);
+			couLos += 1;
+			$('#lossesScore').text("total losses: "+couLos);
 			counter = 0;
+			ranNum = Math.floor((Math.random()*100)+1);
+			$("#randomNumber").text(ranNum);
 			$('#yourResult').text(counter);
-		}
-	});
-})
-
-
-
-
-
-
-// ==============================================
-
-// ==============================================
-
-// 	funRandomNumber();
-// 	funUserNumber();
-
-// 	// function funRandomNumber() {
-// 	// $('#randomNumber').text(Math.floor((Math.random()*100)+1));
-// 	// }
-
-// 	function funUserNumber() {
-// 		var counter = 0;
-// 		$("#crystals").on("click", ".crystalImage", function() {
-// 			counter += 10;
-// 			$('#yourResult').text(counter);
-// 		})
-// 	}
-
-// })
-
-// // ==============================================
-
+		},100);
+	};
+});	
+});
